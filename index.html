@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<meta name="robots" content="noindex, nofollow">
+<meta name="theme-color" content="#0b0d10">
+<title>Car Dash</title>
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<header class="bar">
+  <div class="bar-left">
+    <div id="clock" class="clock">--:--</div>
+    <div id="date" class="muted"></div>
+  </div>
+  <div class="bar-mid">
+    <div class="stat"><span id="speed" class="stat-val">--</span><span id="speedUnit" class="stat-unit">mph</span></div>
+    <div class="stat"><span id="weather" class="stat-val">--</span><span id="weatherDesc" class="stat-unit"></span></div>
+  </div>
+  <div class="bar-right">
+    <button id="fullscreenBtn" class="btn" type="button">Fullscreen</button>
+    <button id="editBtn" class="btn" type="button">Edit</button>
+    <button id="settingsBtn" class="btn" type="button">Settings</button>
+  </div>
+</header>
+
+<div id="driveBanner" class="drive-banner" hidden>
+  Vehicle is moving: streaming is paused until you are parked.
+</div>
+
+<main id="sections" class="sections"></main>
+
+<dialog id="settings" class="sheet">
+  <form method="dialog" class="sheet-body">
+    <h2>Settings</h2>
+    <label class="row">Speed units
+      <select id="optSpeed"><option value="mph">mph</option><option value="kmh">km/h</option></select>
+    </label>
+    <label class="row">Temperature
+      <select id="optTemp"><option value="f">°F</option><option value="c">°C</option></select>
+    </label>
+    <label class="row">24-hour clock
+      <input id="opt24" type="checkbox">
+    </label>
+    <label class="row">Reduced motion (best on older Intel units)
+      <input id="optLite" type="checkbox">
+    </label>
+    <h3>Add a shortcut</h3>
+    <div class="add-grid">
+      <input id="newName" placeholder="Name" maxlength="24">
+      <input id="newUrl" placeholder="https://…" inputmode="url">
+      <select id="newSection"></select>
+      <label class="row-inline"><input id="newStream" type="checkbox"> Video app</label>
+      <button id="addBtn" class="btn primary" type="button">Add</button>
+    </div>
+    <div class="sheet-actions">
+      <button id="resetBtn" class="btn danger" type="button">Reset shortcuts</button>
+      <button class="btn primary" value="close">Done</button>
+    </div>
+  </form>
+</dialog>
+
+<script src="app.js"></script>
+</body>
+</html>
